@@ -3,7 +3,7 @@ import ast
 import subprocess
 
 def parse_env(string):
-    data_to_copy = str(json.loads(ast.literal_eval(string)[0]["value"]))[1:-1]
+    data_to_copy = ast.literal_eval(string)[0]["value"]
 
     platform = subprocess.check_output(["uname"]).strip().decode()
     if platform == "Linux":
